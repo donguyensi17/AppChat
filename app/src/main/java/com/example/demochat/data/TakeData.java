@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.example.demochat.callback.OnListenerServer;
-import com.example.demochat.home.MainActivity;
 import com.example.demochat.home.view.UpdateData;
 import com.example.demochat.socket.ConnectServer;
 

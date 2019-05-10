@@ -3,10 +3,8 @@ package com.example.demochat.socket;
 import com.example.demochat.callback.OnListenerServer;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class ConnectServer {
@@ -39,7 +37,9 @@ public class ConnectServer {
 
             while (true){
                 msgReceive = bufferedReader.readLine();
-                msgServer.callBackData(msgReceive);
+                if (msgReceive != null){
+                    msgServer.callBackData(msgReceive);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
