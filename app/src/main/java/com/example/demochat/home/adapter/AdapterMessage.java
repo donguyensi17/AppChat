@@ -32,13 +32,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHode
 
     @Override
     public void onBindViewHolder(@NonNull ViewHodel viewHodel, int i) {
-        if(i % 2 == 0 ){
-            viewHodel.txtMessage.setText("Client :" + data.get(i));
-
-        }else{
-            viewHodel.txtMessage.setText("Server :" + data.get(i));
-            viewHodel.txtMessage.setGravity(Gravity.START);
-        }
+        viewHodel.txtMessage.setText("Server :" + data.get(i));
     }
 
     @Override
@@ -54,5 +48,4 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHode
             txtMessage = itemView.findViewById(R.id.textview_mess);
         }
     }
-
 }
