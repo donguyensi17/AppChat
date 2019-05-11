@@ -9,7 +9,7 @@ import com.example.demochat.home.view.UpdateData;
 import com.example.demochat.socket.ConnectServer;
 
 
-public class TakeData extends AsyncTask<String, Void, String> {
+public class TakeData extends AsyncTask<String, String, String> {
 
     ConnectServer connectServer;
     UpdateData mUpdateData;
@@ -26,14 +26,15 @@ public class TakeData extends AsyncTask<String, Void, String> {
         connectServer.getData(new OnListenerServer() {
             @Override
             public void callBackData(final String mess) {
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mUpdateData.updateUi(mess);
-                    }
-                }, 0);
+                publishProgress(mess);
             }
         });
         return null;
+    }
+
+    @Override
+    protected void onProgressUpdate(String... values) {
+        super.onProgressUpdate(values);
+        mUpdateData.updateUi(values[0]);
     }
 }
